@@ -207,3 +207,24 @@ ProduceDictionary={
     }
 }
 
+for produce,details in ProduceDictionary.items():
+    #print(type(produce))
+    #print(type(details))
+    # These two statements print out the type associated with the thing going to be printed
+    cost = details['cost']
+    amt_sold = details['amt_sold']
+    stated_total = details['total']
+
+    calc_total = round(cost * amt_sold, 2)
+
+    # DO NOT use produce[word] since produce is already in that form
+    # Below: Rounding issue in python, the calculated total will be alot of decimal numbers
+    # Can also remove the :.2f after the number to make it more efficient
+
+    if calc_total != stated_total:
+        print(f"Produce Name: {produce}")
+        print(f"Calculated Total: ${calc_total}")
+        print(f"Stated Total: {stated_total}")
+        print()
+        print()
+
